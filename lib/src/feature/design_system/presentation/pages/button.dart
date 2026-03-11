@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:warehouse_app/constants/spacing.dart';
-import 'package:go_router/go_router.dart';
-import 'package:warehouse_app/constants/breakpoint.dart';
 import 'package:warehouse_app/shared/utils/app_breakpoints.dart';
 import 'package:warehouse_app/shared/widgets/buttons/icon_button.dart';
 import 'package:warehouse_app/shared/widgets/buttons/outline_button.dart';
 import 'package:warehouse_app/shared/widgets/buttons/primary_button.dart';
+import 'package:warehouse_app/constants/spacing.dart';
 
-class Login extends ConsumerWidget {
-  const Login({super.key});
+class DSButtonPage extends ConsumerWidget {
+  const DSButtonPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final double screenHeight = AppBreakPoint.screenHeight(context);
+  Widget build(context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(title: const Text('Button Page')),
       body: Center(
         child: SingleChildScrollView(
           child: Column(

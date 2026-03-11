@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse_app/constants/colors.dart';
 
-class PrimaryButton extends StatelessWidget {
+class OutlineButton extends StatelessWidget {
   final String type;
   final String text;
   final VoidCallback? onPressed;
@@ -10,8 +10,8 @@ class PrimaryButton extends StatelessWidget {
   final double height;
   final EdgeInsetsGeometry? padding;
 
-  const PrimaryButton({
-    this.type = 'primary',
+  const OutlineButton({
+    this.type = "primary",
     super.key,
     required this.text,
     required this.onPressed,
@@ -26,19 +26,16 @@ class PrimaryButton extends StatelessWidget {
     return SizedBox(
       width: width,
       height: height,
-      child: ElevatedButton(
-        // Jika isLoading true, tombol dinonaktifkan (onPressed jadi null)
+      child: OutlinedButton(
         onPressed: isLoading ? null : onPressed,
-        style: ElevatedButton.styleFrom(
+        style: OutlinedButton.styleFrom(
           padding: padding ?? const EdgeInsets.symmetric(horizontal: 16),
-          // Mengatur kelengkungan border
+          side: BorderSide(color: _borderColor, width: 1),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
-          // Kamu bisa mengatur warna default di sini
-          // (atau membiarkannya ikut tema global di MaterialApp)
-          backgroundColor: _bgColor,
-          foregroundColor: Colors.white,
+          foregroundColor: _borderColor,
+          backgroundColor: Colors.transparent,
           disabledBackgroundColor: Colors.grey.shade300,
         ),
         child: isLoading
@@ -61,7 +58,7 @@ class PrimaryButton extends StatelessWidget {
     );
   }
 
-  Color get _bgColor {
+  Color get _borderColor {
     switch (type) {
       case "primary":
         return AppColor.primaryEmerald;
